@@ -91,44 +91,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<profiles>
-		<profile>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<id>redhat-techpreview-all-repository</id>
-			<repositories>
-				<repository>
-					<id>redhat-techpreview-all-repository</id>
-					<name>Red Hat Tech Preview repository (all)</name>
-					<url>http://maven.repository.redhat.com/techpreview/all/</url>
-					<layout>default</layout>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-						<updatePolicy>never</updatePolicy>
-					</snapshots>
-				</repository>
-			</repositories>
-			<pluginRepositories>
-				<pluginRepository>
-					<id>redhat-techpreview-all-repository</id>
-					<name>Red Hat Tech Preview repository (all)</name>
-					<url>http://maven.repository.redhat.com/techpreview/all/</url>
-					<layout>default</layout>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-						<updatePolicy>never</updatePolicy>
-					</snapshots>
-				</pluginRepository>
-			</pluginRepositories>
-		</profile>
-	</profiles>
 </project>
