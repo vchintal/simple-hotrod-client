@@ -7,7 +7,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <infinispan.version>6.3.0.Final-redhat-5</infinispan.version>
+        <infinispan.version>6.4.0.Final-redhat-4</infinispan.version>
     </properties>
 
     <dependencies>

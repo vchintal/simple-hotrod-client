@@ -99,7 +99,7 @@ public class SimpleHotRodClient<K,V> {
         final File jdgProperties = new File(cl.getResource("jdg.properties").getFile());
         properties.load(new FileReader(jdgProperties));
         
-        final String serverEndpoint = properties.getProperty("serverEndpoint");
+        final String serverEndpoint = System.getenv("DATAGRID_APP_HOTROD_SERVICE_HOST")+":"+System.getenv("DATAGRID_APP_HOTROD_SERVICE_PORT");
         final String cacheName = properties.getProperty("cacheName");
         final Long numEntries = Long.valueOf(properties.getProperty("numEntries"));
         
