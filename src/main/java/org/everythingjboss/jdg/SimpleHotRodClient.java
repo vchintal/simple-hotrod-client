@@ -3,6 +3,7 @@ package org.everythingjboss.jdg;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -96,8 +97,9 @@ public class SimpleHotRodClient<K,V> {
         Properties properties = new Properties();
         ClassLoader cl = SimpleHotRodClient.class.getClassLoader();
       
-        final File jdgProperties = new File(cl.getResource("jdg.properties").getFile());
-        properties.load(new FileReader(jdgProperties));
+        try(InputStream resourceStream = cl.getResourceAsStream("jdg.properties")) {
+            properties.load(resourceStream);
+        }
         
         final String serverEndpoint = System.getenv("DATAGRID_APP_HOTROD_SERVICE_HOST")+":"+System.getenv("DATAGRID_APP_HOTROD_SERVICE_PORT");
         final String cacheName = properties.getProperty("cacheName");
