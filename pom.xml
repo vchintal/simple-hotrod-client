@@ -94,7 +94,7 @@
 	<profiles>
 		<profile>
 			<activation>
-				<activeByDefault />
+				<activeByDefault>true</activeByDefault>
 			</activation>
 			<id>redhat-techpreview-all-repository</id>
 			<repositories>
