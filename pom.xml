@@ -7,7 +7,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <infinispan.version>6.3.0.Final-redhat-5</infinispan.version>
+        <infinispan.version>8.3.0.Final-redhat-1</infinispan.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -27,27 +29,44 @@
             <version>1.3.2</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.2.redhat-3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.2.redhat-3</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.5</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>redhat-ga-repository</id>
+            <name>Red Hat GA repository</name>
+            <url>http://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-ga-repository</id>
+            <name>Red Hat GA repository</name>
+            <url>http://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -83,9 +102,9 @@
                 <configuration>
                     <executable>java</executable>
                     <arguments>
-                       <argument>-classpath</argument>
-                       <classpath/>
-                       <argument>org.everythingjboss.jdg.SimpleHotRodClient</argument>
+                        <argument>-classpath</argument>
+                        <classpath />
+                        <argument>org.everythingjboss.jdg.SimpleHotRodClient</argument>
                     </arguments>
                 </configuration>
             </plugin>

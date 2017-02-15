@@ -2,8 +2,8 @@ package org.everythingjboss.jdg;
 
 
 import org.infinispan.client.hotrod.RemoteCache;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class JDGPutThread<K,V> implements Runnable {
     
@@ -11,7 +11,7 @@ public class JDGPutThread<K,V> implements Runnable {
     private V value;
     private RemoteCache<K,V> cache;
     
-    private static final Logger logger = LoggerFactory.getLogger(JDGPutThread.class);
+    private static final Logger logger = LogManager.getLogger(JDGPutThread.class);
     
     public JDGPutThread(RemoteCache<K,V> cache, K key, V value) {
         this.key = key;
