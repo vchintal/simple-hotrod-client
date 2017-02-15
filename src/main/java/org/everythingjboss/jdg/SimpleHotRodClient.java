@@ -9,12 +9,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
+import org.apache.logging.log4j.LogManager;
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.Configuration;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SimpleHotRodClient<K,V> { 
     
@@ -24,7 +25,7 @@ public class SimpleHotRodClient<K,V> {
     private Long numEntries;
     private KeyValueGenerator<K, V> keyValueGenerator;
     
-    private static final Logger logger = LoggerFactory.getLogger(SimpleHotRodClient.class);
+    private static final Logger logger = LogManager.getLogger(SimpleHotRodClient.class);
 
     public SimpleHotRodClient(String serverEndpoint, String cacheName, long numEntries) {
         this.serverEndpoint = serverEndpoint;
